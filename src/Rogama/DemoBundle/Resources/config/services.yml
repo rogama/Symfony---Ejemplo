@@ -1,0 +1,7 @@
+parameters:
+#    demo.example.class: Rogama\DemoBundle\Example
+
+services:
+#    demo.example:
+#        class: %demo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
