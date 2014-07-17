@@ -1,3 +1,7 @@
 demo_homepage:
     path:     /hello/{name}
     defaults: { _controller: DemoBundle:Default:index }
+    
+articulos:
+    pattern: /articulos
+    defaults: { _controller: DemoBundle:Default:articulos }
