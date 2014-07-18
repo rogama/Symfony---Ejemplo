@@ -23,5 +23,11 @@
             Todo el texto de aquí será convertido a mayúsculas 
         {% endfilter %}
 
+        
+        {#fechas#}
+        {{ variable | date("m/d/Y", "Europe/Paris")}}
+        {# "now" nos devuelve la fecha/hora actual #} 
+        {{ "now" | date("m/d/Y") }}
+
     {% endif %}
 {% endblock %}
