@@ -5,7 +5,7 @@ namespace Rogama\DemoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
-use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use Rogama\DemoBundle\Entity\Comments;
 
@@ -32,12 +32,12 @@ class Articles
     private $comments;
     
     /**
-     * @var string $title
+     * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
      * @Assert\NotNull(message="Debe escribir un titulo")
-     * @Assert\MaxLength(255)
-     * @Assert\MinLength(5
+     * @Assert\Length(max = "255")
+     * @Assert\Length(min = "5")
      */
     private $title;
 

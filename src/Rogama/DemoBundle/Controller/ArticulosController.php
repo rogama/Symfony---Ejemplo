@@ -21,7 +21,7 @@ class ArticulosController extends Controller{
     }
     public function crearAction() {
         $articulo = new Articles;
-        $articulo->setTitle('Articulo de ejemplo 1');
+        //$articulo->setTitle('Articulo de ejemplo 1');
         $articulo->setAuthor('John Doe');
         $articulo->setContent('Contenido');
         $articulo->setTags('ejemplo');
@@ -30,6 +30,15 @@ class ArticulosController extends Controller{
         $articulo->setSlug('articulo-de-ejemplo-1');
         $articulo->setCategory('ejemplo');
         
+        $errores = $this->get('validator')->validate($articulo);
+        
+        if(!empty($errores)){
+            foreach($errores as $error){
+                echo $error->getMessage(); 
+            }
+            return new Response();
+        } 
+         
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($articulo);
         $em->flush();
