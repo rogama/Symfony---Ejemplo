@@ -24,7 +24,7 @@ class Comments
 
     /**
      * 
-     * @ORM\ManyToOne(targetEntity=”Articles”, inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Articles", inversedBy="comments")
      * @ORM\JoinColumn(name="article_id", referencedColumnName="id")
      * @return integer  
      */
