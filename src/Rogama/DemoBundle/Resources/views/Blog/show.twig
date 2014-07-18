@@ -1,4 +1,5 @@
 {% extends "DemoBundle::layout.html.twig" %}
 {% block content %}
     El articulo solicitado es: {{ articulo }}
+    {% include ‘MDWDemoBundle:Blog:articuloDetalles.html.twig’ with {‘articulo’: articulo} %}
 {% endblock %}
