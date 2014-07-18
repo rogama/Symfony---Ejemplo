@@ -9,14 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
  * @author Rogama
  */
 class BlogController extends Controller{
-    public function indexAction() {
-        $producto = false; //imitamos que hemos hecho una consulta y no encontramos el producto
+    public function indexAction($name) {
+        $respuesta = $this->forward('DemoBundle:Blog:index', array('slug'=>$name));
         
-        if(!$producto){
-            throw $this->createNotFoundException('No existe el producto');
-        }
-        
-        return $this->render('');
+        return $respuesta;
     }
     public function showAction($slug) {
         //recuperar el request sin pasarlo como parametro
