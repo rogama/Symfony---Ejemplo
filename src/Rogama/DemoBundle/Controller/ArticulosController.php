@@ -93,4 +93,8 @@ class ArticulosController extends Controller{
         }
         return $this->render('DemoBundle:Articulos:new.html.twig', array('form'=>$form->createView()));
     }
+    
+    public function verArticulosAction() {
+        return $this->render('DemoBundle:Articulos:ver_articulos.html.twig', array());
+    }
 }

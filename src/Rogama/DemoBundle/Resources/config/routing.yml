@@ -57,3 +57,7 @@ blog_articulos:
         culture: en|es
         _format: html|rss
         year: \d{4}+
+        
+ver_articulos:
+    pattern: /ver-articulos
+    defaults: { _controller: DemoBundle:Articulos:verArticulos }
