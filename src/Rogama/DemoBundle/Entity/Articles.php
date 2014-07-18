@@ -32,9 +32,10 @@ class Articles
     private $comments;
     
     /**
-     * @var string
+     * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotNull(message="Debe escribir un titulo")
      */
     private $title;
 
@@ -42,7 +43,6 @@ class Articles
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
-     * @Assert\NotNull()
      */
     private $author;
 
