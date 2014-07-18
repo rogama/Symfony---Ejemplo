@@ -10,10 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class BlogController extends Controller{
     public function indexAction() {
-        //Redireccion 302 (temporal)
-        return $this->redirect($this->generateUrl('homepage'));
-        //Redireccion 301 (permanente)
-        //return $this->redirect($this->generateUrl('homepage'),301);
+        $producto = false; //imitamos que hemos hecho una consulta y no encontramos el producto
+        
+        if(!$producto){
+            throw $this->createNotFoundException('No existe el producto');
+        }
+        
+        return $this->render('');
     }
     public function showAction($slug) {
         //recuperar el request sin pasarlo como parametro
