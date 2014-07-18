@@ -1,16 +1,25 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of ArticulosController
  *
  * @author Roberto
  */
-class ArticulosController {
-    //put your code here
+use Symfony\Component\HttpKernel\Tests\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
+use Rogama\DemoBundle\Entity\Articles;
+
+class ArticulosController extends Controller{
+    public function listarAction() {
+        
+    }
+    public function crearAction() {
+        
+    }
+    public function editarAction($id) {
+        
+    }
+    public function borrarAction($id) {
+        
+    }
 }

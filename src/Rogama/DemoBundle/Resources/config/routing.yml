@@ -6,12 +6,33 @@ articulos:
     pattern: /articulos
     defaults: { _controller: DemoBundle:Default:articulos }
     
+articulo_listar:
+    pattern: /articulos/listar
+    defaults: { _controller: DemoBundle:Articulos:listar }
+      
 articulo:
     pattern: /articulo/{id}
     defaults: { _controller: DemoBundle:Default:articulo }
     requirements:
         id: \d+
 
+articulo_crear:
+    pattern: /articulo/crear
+    defaults: { _controller: DemoBundle:Articulos:crear }
+    
+articulo_editar:
+    pattern: /articulo/editar
+    defaults: { _controller: DemoBundle:Articulos:editar }
+    
+articulo_visualizar:
+    pattern: /articulo/visualizar/{id}
+    defaults: { _controller: DemoBundle:Articulos:visualizar }
+    
+articulo_borrar:
+    pattern: /articulo/borrar/{id}
+    defaults: { _controller: DemoBundle:Articulos:borrar }
+    
+    
 path_hello_world:
     pattern: /hello
     defaults: { _controller: DemoBundle:Default:index }
