@@ -3,6 +3,8 @@
 namespace Rogama\DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Rogama\DemoBundle\Entity\Comments;
 
 /**
  * Articles
@@ -21,6 +23,11 @@ class Articles
      */
     private $id;
 
+    /**	
+     * @ORM\OneToMany(targetEntity="Comments", mappedBy="article")
+     */
+    private $comments;
+    
     /**
      * @var string
      *
@@ -271,4 +278,14 @@ class Articles
     {
         return $this->category;
     }
+    
+        public function __construct(){
+            $this->comments = new ArrayCollection();   
+        }
+        public function addComments(Comments $comments) {
+            $this->comments[] = $comments;
+        }
+        public function getComments(){
+            return $this->comments;
+        }
 }

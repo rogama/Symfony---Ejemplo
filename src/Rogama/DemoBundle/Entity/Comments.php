@@ -22,6 +22,14 @@ class Comments
     private $id;
 
     /**
+     * 
+     * @ORM\ManyToOne(targetEntity=”Articles”, inversedBy="comments")
+     * @ORM\JoinColumn(name="article_id", referencedColumnName="id")
+     * @return integer  
+     */
+    private $article;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
@@ -120,5 +128,13 @@ class Comments
     public function getReplyTo()
     {
         return $this->replyTo;
+    }
+
+    public function getArticle() {
+        return $this->article;
+    }
+
+    public function setArticle(\Rogama\DemoBundle\Entity\Articles $article) {
+        $this->article = $article;
     }
 }
