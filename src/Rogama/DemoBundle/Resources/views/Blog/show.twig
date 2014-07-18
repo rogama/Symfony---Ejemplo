@@ -3,4 +3,9 @@
     <img src="{{asset('images/logo.gif')}}"alt="mi logo!"/>
     El articulo solicitado es: {{ articulo }}
     {#{% include ‘MDWDemoBundle:Blog:articuloDetalles.html.twig’ with {‘articulo’: articulo} %}#}
+    
+    {{ articulo | raw }} {# evita el escapado de variables #} 
+    {# fuerza el escapado de variables (opción por defecto en Symfony2) #} 
+    {{ articulo | escape }}
+
 {% endblock %}
