@@ -10,4 +10,9 @@
 
     {#Si no existe la variable usa el valor por defecto#}
     {{ articulo | default('valor por defecto') }}
+    
+    {#comprobar si tenemos declarada una variable#}
+    {% if variable is defined %}
+        {#aplicar operaciones si no se ha declarado la variable#}
+    {% endif %}
 {% endblock %}
