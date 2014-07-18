@@ -23,3 +23,11 @@ blog_index:
 blog_mostrar:
     pattern: /blog/{slug}
     defaults: { _controller: DemoBundle:Blog:show }
+    
+blog_articulos:
+    pattern: /articulos/{culture}/{year}/{titulo}.{_format}
+    defaults: { _controller: DemoBundle:Blog:articulos, _format: html}
+    requirements:
+        culture: en|es
+        _format: html|rss
+        year: \d{4}+
