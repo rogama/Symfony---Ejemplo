@@ -3,6 +3,7 @@
 namespace Rogama\DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Rogama\DemoBundle\Entity\Articles;
 
 /**
  * Comments
@@ -134,7 +135,7 @@ class Comments
         return $this->article;
     }
 
-    public function setArticle(\Rogama\DemoBundle\Entity\Articles $article) {
+    public function setArticle(Articles $article) {
         $this->article = $article;
     }
 }

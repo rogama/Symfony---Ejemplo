@@ -9,6 +9,8 @@ articulos:
 articulo:
     pattern: /articulo/{id}
     defaults: { _controller: DemoBundle:Default:articulo }
+    requirements:
+        id: \d+
 
 path_hello_world:
     pattern: /hello
