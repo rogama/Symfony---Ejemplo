@@ -1,0 +1,29 @@
+{% extends "DemoBundle::layout.html.twig" %}
+{% block content %}
+    <div>
+        <p>Noticias recientes</p>
+        <ol>
+            {% for index, notice in  notices %}
+                <li><a href="{{ path('DemoBundle_noticeView', {'notice_id':index })}}">
+                        {{ notice.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ol>
+        <div id="notice_viewer">
+            {#Aqui cargaremos las noticias por ejax#}
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('a.notice_link').click(function (event){
+                event.preventDefault();//Cancela el comportamiento por defecto
+                $('#notice_viewer').load($(this).attr('href'));//Carga por ajax la capa de notice_viewer
+            });
+        });
+    </script>
+{% endblock javascripts %}

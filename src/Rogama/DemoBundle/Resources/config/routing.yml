@@ -61,3 +61,11 @@ blog_articulos:
 ver_articulos:
     pattern: /ver-articulos
     defaults: { _controller: DemoBundle:Articulos:verArticulos }
+    
+DemoBundle_noticias:
+    pattern: /noticias
+    defaults: { _controller: DemoBundle:Notice:index }
+    
+DemoBundle_noticeView:
+    pattern: /leerNoticia/{notice_id}
+    defaults: { _controller: DemoBundle:Notice:noticeView }

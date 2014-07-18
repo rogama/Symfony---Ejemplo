@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+    {% block javascripts %} 
+        <script	type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+    {% endblock javascripts %}
+    {% block body %} 
+        <div>
+            <h1>*** Web de Noticias ***</h1>
+            {# según el patrón de 3 niveles, creamos el bloque de contenido #}   
+            {% block content %}
+            {% endblock content %}
+        </div> 
+    {% endblock body%}

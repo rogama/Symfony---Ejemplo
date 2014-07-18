@@ -1,0 +1,7 @@
+{% extends app.request.isXmlHttpRequest ? "DemoBundle::layout_ajax.html.twig" : "DemoBundle::layout.html.twig" %}
+{% block content %}
+    <div>
+        <h2>{{ notice.title }}</h2>
+        <p>{{ notice.content }}</p>
+    </div>
+{% endblock %}
