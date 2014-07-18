@@ -1,5 +1,6 @@
 {% extends "DemoBundle::layout.html.twig" %}
 {% block content %}
+    <img src="{{asset('images/logo.gif')}}"alt="mi logo!"/>
     El articulo solicitado es: {{ articulo }}
-    {% include ‘MDWDemoBundle:Blog:articuloDetalles.html.twig’ with {‘articulo’: articulo} %}
+    {#{% include ‘MDWDemoBundle:Blog:articuloDetalles.html.twig’ with {‘articulo’: articulo} %}#}
 {% endblock %}
