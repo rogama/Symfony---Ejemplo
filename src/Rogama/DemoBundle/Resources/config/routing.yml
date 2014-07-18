@@ -32,6 +32,9 @@ articulo_borrar:
     pattern: /articulo/borrar/{id}
     defaults: { _controller: DemoBundle:Articulos:borrar }
     
+articulo_new:
+    pattern: /articulo/new
+    defaults: { _controller: DemoBundle:Articulos:new }
     
 path_hello_world:
     pattern: /hello

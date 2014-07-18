@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 use Rogama\DemoBundle\Entity\Articles;
+use Rogama\DemoBundle\Form\ArticleType;
 
 class ArticulosController extends Controller{
     public function listarAction() {
@@ -21,7 +22,7 @@ class ArticulosController extends Controller{
     }
     public function crearAction() {
         $articulo = new Articles;
-        //$articulo->setTitle('Articulo de ejemplo 1');
+        $articulo->setTitle('Articulo de ejemplo 1');
         $articulo->setAuthor('John Doe');
         $articulo->setContent('Contenido');
         $articulo->setTags('ejemplo');
@@ -64,5 +65,11 @@ class ArticulosController extends Controller{
         $em->remove($articulo);
         $em->flush();
         return $this->redirect($this->generateUrl('articulos_listar'));
+    }
+    
+    public function newAction() {
+        $articulo = new Articles();
+        $form = $this->createForm(new ArticleType(), $articulo);
+        return $this->render('DemoBundle:Articulos:new.html.twig', array('form'=>$form->createView()));
     }
 }
