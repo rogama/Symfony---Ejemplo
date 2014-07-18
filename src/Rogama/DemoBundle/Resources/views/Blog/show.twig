@@ -8,4 +8,6 @@
     {# fuerza el escapado de variables (opción por defecto en Symfony2) #} 
     {{ articulo | escape }}
 
+    {#Si no existe la variable usa el valor por defecto#}
+    {{ articulo | default('valor por defecto') }}
 {% endblock %}
