@@ -58,7 +58,7 @@ class Articles
     /**
      * @var string
      *
-     * @ORM\Column(name="tags", type="string", length=255)
+     * @ORM\Column(name="tags", type="string", length=255, nullable=true)
      */
     private $tags;
 
@@ -72,21 +72,21 @@ class Articles
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated", type="date")
+     * @ORM\Column(name="updated", type="date", nullable=true)
      */
     private $updated;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=255)
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\Column(name="category", type="string", length=255, nullable=true)
      */
     private $category;
 

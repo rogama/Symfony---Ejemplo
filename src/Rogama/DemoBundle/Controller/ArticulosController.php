@@ -68,8 +68,29 @@ class ArticulosController extends Controller{
     }
     
     public function newAction() {
+        //Obtenemos el request que contendra los datos
+        $request = $this->getRequest();
         $articulo = new Articles();
-        $form = $this->createForm(new ArticleType(), $articulo);
+        
+        $form= $this->createForm(new ArticleType(), $articulo);
+        
+        //Cuando hay datos POST (se ha ejecutado el formulario
+        
+        if($request->getMethod()== 'POST'){
+            //Pasamos el request al metodo binrequest
+            $form->bind($request);
+            //Comprobamos que los datos sean validos
+            
+            if($form->isValid()){
+                //Procesamos los datos
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($articulo);
+                $em->flush();
+                
+                //hacemos una redireccion al listado para verlos
+                return $this->redirect($this->generateUrl('articulos'));
+            }
+        }
         return $this->render('DemoBundle:Articulos:new.html.twig', array('form'=>$form->createView()));
     }
 }
