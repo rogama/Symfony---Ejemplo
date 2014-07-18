@@ -9,8 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  */
 class BlogController extends Controller{
     public function showAction($slug) {
-        //usar una URL declarada en el routing
-        $url = $this->generateUrl('blog_mostrar', array('slug'=>'mi-articulo'));
-        
+        $articulo = $slug;
+        return $this->render('DemoBundle:Blog:show.html.twig', array('articulo'=>$articulo));
     }
 }
