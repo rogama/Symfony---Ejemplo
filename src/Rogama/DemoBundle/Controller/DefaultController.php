@@ -3,12 +3,16 @@
 namespace Rogama\DemoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('DemoBundle:Default:index.html.twig', array('name' => $name));
+        $response = new Response('Hola mundo!!!');
+        return $response;
+
+        //return $this->render('DemoBundle:Default:index.html.twig', array('name' => $name));
     }
     
     public function articulosAction() {
