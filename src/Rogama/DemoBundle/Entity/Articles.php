@@ -4,6 +4,9 @@ namespace Rogama\DemoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+
+use Symfony\Component\Validator\Constraint as Assert;
+
 use Rogama\DemoBundle\Entity\Comments;
 
 /**
@@ -39,6 +42,7 @@ class Articles
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
+     * @Assert\NotNull()
      */
     private $author;
 
