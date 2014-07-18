@@ -30,4 +30,8 @@
         {{ "now" | date("m/d/Y") }}
 
     {% endif %}
+    
+    {#formato numerico#}
+    {{ 2500.333 | number_format(2, ',', '.') }}
+
 {% endblock %}
