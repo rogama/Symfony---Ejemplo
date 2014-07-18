@@ -14,5 +14,14 @@
     {#comprobar si tenemos declarada una variable#}
     {% if variable is defined %}
         {#aplicar operaciones si no se ha declarado la variable#}
+        {{ variable | capitalize }} {# capitaliza el primer carácter de la cadena #} 
+        {{ variable | lower }} {# convierte a minúsculas la cadena #} 
+        {{ variable | upper }} {# convierte a mayúsculas la cadena #} 
+        {{ variable | title }} {# capitaliza cada palabra de la cadena #}
+        
+        {% filter upper %} 
+            Todo el texto de aquí será convertido a mayúsculas 
+        {% endfilter %}
+
     {% endif %}
 {% endblock %}
