@@ -34,4 +34,14 @@
     {#formato numerico#}
     {{ 2500.333 | number_format(2, ',', '.') }}
 
+    {% set url_share = 'http://rogamainformatica.es' ~ path('blog_article', {'year' : 
+        (article.created|date('Y')),'month' : (article.created|date('m')),'slug' : article.slug }) %}
+        <!-- Coloca esta etiqueta donde quieras que se muestre el botón +1. -->
+
+    <g:plusone	size="medium" href="{{url_share}}"></g:plusone>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ url_share	}}" data-lang="es">
+        Twittear
+    </a> 
+    <div class="fb-like" data-href="{{ url_share }}" data-send="false" data- layout="button_count" data-width="100" data-show-faces="true"></div>
+    
 {% endblock %}
