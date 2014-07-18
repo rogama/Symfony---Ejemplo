@@ -13,3 +13,11 @@ articulo:
 path_hello_world:
     pattern: /hello
     defaults: { _controller: DemoBundle:Default:index }
+    
+blog_mostrar:
+    pattern: /blog/{slug}
+    defaults: { _controller: DemoBundle:Blog:show }
+    
+blog_index:
+    pattern: /blog/page/{page}
+    defaults: { _controller: DemoBundle:Blog:index, page: 1 }
