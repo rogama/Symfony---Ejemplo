@@ -2,6 +2,7 @@
 
 namespace Rogama\DemoBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -45,6 +46,7 @@ class Articles
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
+     * @Gedmo\Sluggable()
      */
     private $author;
 
@@ -80,6 +82,7 @@ class Articles
      * @var string
      *
      * @ORM\Column(name="slug", type="string", length=255, nullable=true)
+     * @Gedmo\Slug(style="camel", separator="_", updatable=false, unique=true)
      */
     private $slug;
 

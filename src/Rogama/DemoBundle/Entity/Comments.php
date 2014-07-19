@@ -2,6 +2,7 @@
 
 namespace Rogama\DemoBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Rogama\DemoBundle\Entity\Articles;
 
