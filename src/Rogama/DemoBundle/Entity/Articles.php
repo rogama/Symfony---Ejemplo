@@ -15,6 +15,7 @@ use Rogama\DemoBundle\Entity\Comments;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Rogama\DemoBundle\Entity\ArticlesRepository")
+ * @Gedmo\Loggable()
  */
 class Articles
 {
@@ -54,6 +55,7 @@ class Articles
      * @var string
      *
      * @ORM\Column(name="content", type="text")
+     * @Gedmo\Versioned()
      */
     private $content;
 
@@ -68,6 +70,7 @@ class Articles
      * @var \DateTime
      *
      * @ORM\Column(name="created", type="date")
+     * @Gedmo\Timestampable(on="create")
      */
     private $created;
 
@@ -75,6 +78,7 @@ class Articles
      * @var \DateTime
      *
      * @ORM\Column(name="updated", type="date", nullable=true)
+     * @Gedmo\Timestampable(on="create")
      */
     private $updated;
 
