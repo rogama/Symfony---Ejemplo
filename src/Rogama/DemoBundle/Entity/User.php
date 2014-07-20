@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="admin_user")
  * @ORM\Entity()
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @var integer $id
@@ -135,7 +135,13 @@ class User implements UserInterface
      * @return Doctrine\Common\Collections\Collection  
      */
     public function getRoles(){
-        return $this->user_roles->toArray();
+        //return $this->user_roles->toArray();
+        $roles = array();
+        foreach ($this->userRoles as $role) {
+            $roles[] = $role->getRole();
+        }
+
+        return $roles;
         //IMPORTANTE: el mecanismo de seguridad de Sf2 requiere ésto como un array  
     }
     
@@ -154,5 +160,27 @@ class User implements UserInterface
     public function eraseCredentials() {
     
     }
+
+    /**
+    * Serializes the content of the current User object
+    * @return string
+    */
+    public function serialize()
+    {
+        return json_encode(
+                array($this->username, $this->password, $this->salt,
+                        $this->user_roles, $this->id));
+    }
+
+    /**
+     * Unserializes the given string in the current User object
+     * @param serialized
+     */
+    public function unserialize($serialized)
+    {
+        list($this->username, $this->password, $this->salt,
+                        $this->user_roles, $this->id) = json_decode(
+                $serialized);
+    }  
 
 }

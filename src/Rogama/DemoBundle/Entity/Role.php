@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="admin_roles") 
  */ 
-class Role implements RoleInterface {
+class Role implements RoleInterface ,  \Serializable{
     /**     
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -50,12 +50,42 @@ class Role implements RoleInterface {
         return $this->name;
     }
     
+    /**
+     * Get role
+     *
+     * @return string
+     */
     public function getRole(){
         return $this->getName();
     }
     
     public function __toString(){
         return $this->getRole();
+    }
+    
+    /**
+     * @see \Serializable::serialize()
+     */
+    public function serialize()
+    {
+        /*
+         * ! Don't serialize $users field !
+         */
+        return \serialize(array(
+            $this->id,
+            $this->name
+        ));
+    }
+
+    /**
+     * @see \Serializable::unserialize()
+     */
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->name
+        ) = \unserialize($serialized);
     }
 }
 
