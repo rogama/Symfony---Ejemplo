@@ -46,7 +46,7 @@ class UserController extends Controller
     {
         $entity = new User();
         $request = $this->getRequest();
-        $form = $this->createForm(new UserType(), $entity);
+        $form = $this->createCreateForm($entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -58,7 +58,7 @@ class UserController extends Controller
 
             return $this->redirect($this->generateUrl('admin_user_show', array('id' => $entity->getId())));
         }
-
+            
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
