@@ -84,9 +84,9 @@ class ArticulosController extends Controller{
             if($form->isValid()){
                 //Procesamos los datos
                 $em = $this->getDoctrine()->getEntityManager();
+                
                 $em->persist($articulo);
                 $em->flush();
-                
                 //hacemos una redireccion al listado para verlos
                 return $this->redirect($this->generateUrl('articulos'));
             }
@@ -96,5 +96,41 @@ class ArticulosController extends Controller{
     
     public function verArticulosAction() {
         return $this->render('DemoBundle:Articulos:ver_articulos.html.twig', array());
+    }
+    
+    public function updateArticleAction($id) {
+        $em = $this->getDoctrine()->getEntityManager();
+        
+        $article = $em->getRepository('DemoBundle:Articles')->findOneBy(array('id' => $id));
+        
+        $article->setContent('editado');
+        $em->persist($article);
+        $em->flush();
+        
+        $content = '';
+        //Aqui vemos los cambios
+        $log = $em->getRepository('Stof\DoctrineExtensionsBundle\Entity\LogEntry');
+        
+        $query_changues = $log->getLogEntriesQuery($article);
+        $changes = $query_changues->getResult();
+        
+        foreach ($changes as $version) {
+            $fields = $$version->getData();
+            $content.= ' Fecha: ' .
+                    $version->getLoggedAt()->format('d/m/Y H:i:s').
+                    ' accion: "' . $version->getAction() . '"'.
+                    ' usuario: "'. $version->getUsername() . '"'.
+                    ' objeto: "' . $version->getObjectClass() . '"'.
+                    ' id: "'     . $version->getObjectId() .'"'.
+                    ' Version: "'. $version->getVersion() . '"'.
+                    ' datos:<br />';
+                    foreach ($fields as $field => $value) {
+                        $content.= "-- ".$field . ': ' .$value . '<br />';
+                    }
+        }
+        
+        $r = new Response();
+        $r->setContent($content);
+        return $r;
     }
 }

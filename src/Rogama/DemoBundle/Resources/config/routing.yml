@@ -62,6 +62,10 @@ ver_articulos:
     pattern: /ver-articulos
     defaults: { _controller: DemoBundle:Articulos:verArticulos }
     
+historico_cambios:
+    pattern: /historico-cambios/{id}
+    defaults: { _controller: DemoBundle:Articulos:updateArticle }
+    
 DemoBundle_noticias:
     pattern: /noticias
     defaults: { _controller: DemoBundle:Notice:index }

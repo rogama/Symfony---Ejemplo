@@ -2,9 +2,9 @@
 
 namespace Rogama\DemoBundle\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -15,7 +15,6 @@ use Rogama\DemoBundle\Entity\Comments;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Rogama\DemoBundle\Entity\ArticlesRepository")
- * @Gedmo\Loggable()
  */
 class Articles
 {
@@ -47,7 +46,6 @@ class Articles
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
-     * @Gedmo\Sluggable()
      */
     private $author;
 
@@ -55,7 +53,6 @@ class Articles
      * @var string
      *
      * @ORM\Column(name="content", type="text")
-     * @Gedmo\Versioned()
      */
     private $content;
 
@@ -86,7 +83,7 @@ class Articles
      * @var string
      *
      * @ORM\Column(name="slug", type="string", length=255, nullable=true)
-     * @Gedmo\Slug(style="camel", separator="_", updatable=false, unique=true)
+     * @Gedmo\Slug(fields={"title"}, style="camel", separator="_", updatable=false, unique=true)
      */
     private $slug;
 
