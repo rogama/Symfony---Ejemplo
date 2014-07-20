@@ -73,3 +73,8 @@ DemoBundle_noticias:
 DemoBundle_noticeView:
     pattern: /leerNoticia/{notice_id}
     defaults: { _controller: DemoBundle:Notice:noticeView }
+    
+RogamaAnnotations:
+    resource: "@DemoBundle/Controller/"
+    prefix: /
+    type: annotation
